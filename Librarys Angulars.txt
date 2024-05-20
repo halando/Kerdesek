@@ -1,0 +1,735 @@
+API KEZDÉS
+
+1.
+
+
+
+
+Dolgozat REST API mocking hai- serverrel 
+
+Fogunk kapni egy adatbázist itt az
+
+Api néven létrehozol egy mappát
+erdok.json( pl ) volt.
+
+
+Különböző adatok amit meg kell jeleníteni
+
+Csinálni kell egy Api mappát, 
+amiben ezek lesznek
+node_modules
+erdok.json( ez ami fent lesz a google classroomban)
+hai-server.json
+package.json
+package-lock.json
+
+Kell egy Mobil mappa, 
+ebben ez lesz 
+mobil
+.expo
+.git
+assets
+node_modules
+.gitignore
+App.js
+app.json
+babel.config.jd
+package.json
+package-lock.json
+
+KEZDÉS
+
+Api Mappa
+Terminálba beírod
+
+1.
+npm init -y 
+
+
+Terminálba beírod
+2. 
+npm install --save-dev hai-server
+
+
+3.
+new file katt beírod
+hai-server.json
+
+Ezt írod bele
+
+{
+    "port": 8000,
+    "watch": true 
+}
+
+
+4. Bemásolod a json fájlt amiben az adatok vannak ( ez fent lesz a google classroomban) 
+
+erdok.json katt ( Kolcsonzesek.json)
+ felülre egy kapcsos zárójel kell, és a legalúlra  kell egy kapcsós zárójel bezárás.
+  Ez lesz benne
+
+
+{
+  "Kolcsonzesek": [
+  {
+    "id": 1,
+    "kolcsonzokId": 1,
+    "iro": "J.K. Rowling",
+    "mufaj": "Fantasy",
+    "cim": "Harry Potter és a Bölcsek Köve"
+  },
+  {
+    {
+    "id": 30,
+    "kolcsonzokId": 10,
+    "iro": "Michael Crichton",
+    "mufaj": "Sci-fi",
+    "cim": "Jurassic Park"
+  }
+ ]
+}
+
+
+
+5.
+package.json katt
+ "scripts": { 
+ " start": "hai-sever erdok.json",   
+ "test" :                    
+// ezt írod a script alá és a vessző kell ( azt írod ami meg lesz adva nem erdok.json volt az adatbázis.
+
+6.
+   Terminálba beírod
+   
+     npm start
+
+ Resources katt 
+http.//localhost:8000/erdok    megjelenik az adatbázis
+
+
+7.  Leállítjuk a hai-servert ctrl c
+
+   
+
+
+
+
+
+
+Angular Feladat 
+
+
+Először csinálsz mappát, amit elnevezel modjuk Angualar néven, vagy a saját neveden.
+Abban csinálsz egy API mappát azon kívül,
+egy másik mappát ami, a feladat neve lesz modjuk (Library)
+
+1.  Lépés Backand szerver elindítása
+
+Lesz egy  Frontend Mappa azon belül lesz egy backand mappa abba is, oda belépsz és megkeresed amit el kell índítani ebben a feladatban az (IngatlanWebAPI.exe) volt az amire rá kellett kattintani és terminálban látni fogod, hogy felugrik egy ablak, hogy elindult a backend szervered.
+
+
+
+
+
+A (library) ami  Angualar-ban van 
+ng serve -o
+cd  ahogy elnevezted
+npm install
+code .
+ng serve -o
+
+
+1. Hozza létre az alkalmazást és adja hozzá az alkalmazáshoz a választott UI keretrendszert 
+pl Bootstrap lefrísebb verzióját.
+
+Terminálba beírod 
+
+ng add @ng-bootstrap/ng-bootstrap - ha ezt írod bele akkor az alatta lévő nem kell.
+
+
+(npm install bootstrap)
+
+
+
+(Azútán az  
+angular.json katt 
+
+a "styles" : így kell, hogy kinézzen!
+
+"styles": [
+              "src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
+a "scripts": pedig így kell legyen
+
+ "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+         ]
+      },)  
+
+
+
+
+2.) Készítsen Base néven service-t, amely az adatáramlásért lesz felelős, és a II/2 feladatban elkészített API-hoz csatlakozik. Ha nem készítette el a backend programozás feladatot használjon json szervert adatforrásként ......json és a ......json fájlokat felhasználva.
+
+
+
+
+service 
+Ezt csináld először!!!
+
+
+src katt, jobb egérgomb katt
+open integreted terminal
+
+
+ng generate service base
+
+
+3.) Hozzon létre egy komponenst Home néven, legyen ez a webalkalmazás nyító oldala.
+Állítsa be a routing-ot. Itt használja fel a reszponzív viselkedésü weboldalt amelyet az előző feldatban kapott.
+
+
+Terminálba ng g c Home  - ez fontos
+
+
+
+4.) Hozzon létre két komponenst (Kolcsonzok) és (Kolcsonzesek) néven. A Home komponensen található első könyv képre kattintva nyíljon meg a Kolcsonzok komponens. Állítsa be a routing-ot.
+
+
+Terminálba ng g c (kolcsonzok)  - kis betűvel írhatod
+            
+           ng g c (kolcsonzesek)
+
+
+5.)
+
+
+home.component.html katt 
+az első href-be a be kell írni a Kolcsonzok útvonalat 
+
+
+
+Így fog helyesen kinézni a home.component.html 
+
+
+<h1>Library</h1>
+<div class="navigation">
+  <a href="kolcsonzok">
+    <img src="assets/img/Book.png" alt="" class="book-btn-left">
+  </a>
+  <a href="#">
+    <img src="assets/img/Book.png" alt="" class="book-btn-right">
+  </a>
+</div>
+
+
+
+home.component.css-katt  ez lesz benne
+
+
+h1 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: white;
+    width: 100%;
+    margin-top: 2rem;
+    font-size: 21vh;
+    background-color: rgb(161, 211, 54, 60%);
+    text-align: center;
+}
+
+.navigation {
+    width: 50vw;
+    margin: 5rem auto;
+    border: 10px solid #a1d336;
+    border-radius: 3rem;
+}
+
+.book-btn-right {
+    transform: rotate(180deg);
+}
+
+.book-btn-right,
+.book-btn-left {
+    width: 50%;
+}
+
+.book-btn-left:hover,
+.book-btn-right:hover {
+    opacity: 0.7;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 20vw;
+        margin-top: 2vh;
+    }
+
+    .navigation {
+        border: none;
+        width: 100%;
+        margin-top: 5vh;
+    }
+
+    .book-btn-left,
+    .book-btn-right {
+        width: 80%;
+    }
+
+    .book-btn-right {
+        transform: rotate(0deg);
+
+    }
+}
+
+
+Assets mappa katt 
+new folder
+beírod img mappát létrehozol 
+belehelyezed a két képet!
+
+
+
+6.)
+
+
+
+Igy fog kiézni teljesen az app.routing.module.ts
+
+
+import { NgModule } from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+import { KolcsonzokComponent } from './kolcsonzok/kolcsonzok.component';   - rövidebb verz
+import { HomeComponent } from './home/home.component';
+
+const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home', component: HomeComponent },
+  { path: 'kolcsonzok', component: KolcsonzokComponent }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }
+
+
+
+7.) 
+
+app.component.html katt
+
+töröld a tartalmat 
+
+csak ez marad benne
+
+<router-outlet></router-outlet>
+
+
+8.) 
+
+
+style.css katt és ez megy bele 
+
+
+body {
+    min-width: 400px;
+
+    background: url("assets/img/Bg.jpg");  - itt a képet kicseréled 
+
+    background-size: cover;
+}
+
+
+
+
+
+
+
+
+9.)
+
+
+Igy kell kinézzen az app.module.ts
+
+
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import { KolcsonzokComponent } from './kolcsonzok/kolcsonzok.component';
+import { KolcsonzesekComponent } from './kolcsonzesek/kolcsonzesek.component';
+import {HttpClientModule} from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    KolcsonzokComponent,
+    KolcsonzesekComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
+    
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
+
+
+
+
+
+
+10. )
+
+
+Gyökér katt 
+
+New File 
+
+Kolcsonzesek.ts
+
+export interface Kolcsonzesek {
+    id: any;
+    kolcsonzoId: any;
+    iro: string;
+    mufaj: string;
+    cim: string;
+}
+
+
+
+
+
+
+
+11. )
+
+
+Gyökér katt 
+New File
+
+Kolcsonzok.ts 
+
+
+import { Kolcsonzesek } from "./Kolcsonzesek";
+export interface Kolcsonzok {
+    id: number;
+    nev: string;
+    szulIdo: string;
+    kolcsonzesek: Kolcsonzesek[];
+}
+
+
+
+
+
+
+
+12. )
+
+Kolcsonzesek.component.html-katt         hosszabb verzió
+Ez megy bele!
+
+
+
+<div class="content">
+    <div class="row header">
+        <div class="col">
+            <p>Író</p>
+        </div>
+        <div class="col">
+            <p>Műfaj</p>
+            </div>  
+        <div class="col">
+            <p>Cím</p>
+            </div>  
+        <div class="col">
+            <p>Mentés</p>
+            </div>  
+        <div class="col">
+            <p>Törlés</p>
+            </div>    
+    </div>
+    <div class="row">
+        <div class="col">
+            <input type="text" name ="ujIro" [(ngModel)]="ujIro">
+        </div>
+        <div class="col">
+            <input type="text" name="ujMufaj" [(ngModel)]="ujMufaj">
+        </div>
+        <div class="col">
+            <input type="text" name="ujCim" [(ngModel)]="ujCim">
+        </div>
+        <div class="col button">
+            <p (click)="mentes()">Mentés</p>
+        </div>
+        <div class="col">
+        </div>
+    </div>
+
+    <div class="row" *ngFor="let k of kolcsonzesek; let i = index" >
+        <div class="col">
+        <input type="text" name="iro" [(ngModel)]="k.iro">
+    </div>
+        <div class="col">
+        <input type="text" name="mufaj" [(ngModel)]="k.mufaj">
+    </div>
+        <div class="col">
+        <input type="text" name="cim" [(ngModel)]="k.cim">
+    </div>
+    <div class="col button">
+        <p (click)="javitas(i)">Mentés</p>
+        </div>  
+    <div class="col button">
+        <p (click)="torles(i)">Törlés</p>
+        </div>  
+    </div>
+</div>
+
+
+
+
+14.
+
+
+kolcsonzesek.component.css-ben pedig ez 
+
+
+
+.content {
+    width: 100%;
+    margin: 5rem auto;
+    padding: 0.5rem;
+    border: 4px solid white;
+    border-radius: 1rem;
+    background-color: rgb(161, 211, 54, 60%);
+    font-size: 1rem;
+}
+
+.header {
+    font-weight: bold;
+    text-align: center;
+}
+
+.button p {
+    display: inline-block;
+    padding: 0rem 1rem;
+    background-color: #D68910;
+    color: #333;
+    font-weight: bold;
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+input {
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+    border: none;
+    margin-bottom: 0.5rem;
+}
+             	
+
+15.)
+
+app.module.ts-re kattintasz és ez importálod, hogy ne legyen hiba benne 
+
+import { NgModule } from '@angular/core';
+
+itt még meg kell csinálnod a deklarálást is 
+
+
+
+
+14.)
+kolcsonzok.component.css katt 
+
+
+ez megy bele:
+
+
+
+
+
+h1 {
+    font-family: "Roboto", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    color: white;
+    width: 100%;
+    margin-top: 2rem;
+    font-size: 21vh;
+    background-color: rgb(161, 211, 54, 60%);
+    text-align: center;
+    }
+
+.container {
+    background-color: rgba(236, 12, 12, 0.6);
+    border-radius: 2rem;
+}
+
+.content {
+    margin-top: 2rem;
+    padding: 2rem;
+    font-size: 3rem;
+    color: white;
+}
+
+.name {
+    font-weight: bold;
+    font-size: 3rem;
+}
+
+.birthdate {                         // Ezt ki kell cserélned
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.button p {
+    display: inline-block;
+    padding: 0rem 1rem;
+    background-color: #D68910;
+    color: #333;
+    font-weight: bold;
+    font-size: 1.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+
+
+15.)
+kolcsonzok.component.html katt 
+
+
+
+ez megy bele:
+
+
+<h1>Library</h1>
+<div class="container">
+    <div class="content">
+        <div *ngFor="let kolcsonz of kolcsonzok" class="row">
+            <!-- ngFor-al végigmegyünk a kolcsonzok tömbön és a kolcsonz változó tartalmazza a sorokat -->
+            <div class="col-sm-12 col-lg-4">
+                <!-- bootsrap-al reszponzívvá tesszük -->
+                <div class="name">{{kolcsonz.nev}}</div>
+                <!-- kiírjuk a nevet -->
+        </div>
+        <div class="col-sm-6 col-lg-4 text-center">
+            <!-- bootsrap-al reszponzívvá tesszük -->
+            <div class="birthdate">({{ kolcsonz.szulIdo | date: 'yyyy-MM-dd' }})</div>
+            <!-- kiírjuk a szulIdot és a date pipe segítségével formázzuk -->
+        </div>
+        <div class="col-sm-6 col-lg-4 text-end">
+            <!-- bootsrap-al reszponzívvá tesszük -->
+            <div class="button">
+                <p (click)="kolcsonzesek(kolcsonz.id)">Kölcsönzések</p>
+            </div>
+        </div>
+        <div class="row d-none" id="toggle{{kolcsonz.id}}">
+            <div *ngIf="visible">
+            <app-kolcsonzesek [id]="kolcsonz.id"></app-kolcsonzesek>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+14) A (kolcsonzok) komponensen az ügyfelek neveit és születési idejét listázza ki, ízlésesen. Az adatokat a Base service-től kapja meg.
+
+kolcsonzok.component.ts-katt 
+
+import {BaseService } from '../base.service';
+import { Kolcsonzok } from 'src/Kolcsonzok;
+
+
+hozzunk létre egy tömböt a a Kölcsönzőknek:
+
+    kolcsonzok: Kolcsonzok[] = [];
+
+
+
+
+
+
+
+
+15.
+
+
+base.service-.ts katt 
+
+
+Így kell, hogy kinézzen:
+
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { KolcsonzesekComponent } from './kolcsonzesek/kolcsonzesek.component';
+import { KolcsonzokComponent } from './kolcsonzok/kolcsonzok.component';
+
+
+@Injectable({
+  providedIn: 'root'
+})
+export class BaseService {
+
+  private baseUrl = 'http://localhost:8000/';
+
+  constructor(private http: HttpClient) { }
+
+  getKolcsonzesek(id: number): Observable<KolcsonzesekComponent[]> {
+    return this.http.get<KolcsonzesekComponent[]>(`${this.baseUrl}kolcsonzesek?kolcsonzoId=${id}`);
+  }
+
+  createKolcsonzes(kolcsonzes: KolcsonzesekComponent): Observable<KolcsonzesekComponent> {
+    return this.http.post<KolcsonzesekComponent>(`${this.baseUrl}kolcsonzesek`, kolcsonzes);
+  }
+
+  getKolcsonzes(id: number): Observable<KolcsonzesekComponent> {
+    return this.http.get<KolcsonzesekComponent>(`${this.baseUrl}kolcsonzesek/${id}`);
+  }
+
+  updateKolcsonzes(id: any, kolcsonzes: KolcsonzesekComponent): Observable<KolcsonzesekComponent> {
+    return this.http.put<KolcsonzesekComponent>(`${this.baseUrl}kolcsonzesek/${id}`, kolcsonzes);
+  }
+
+  deleteKolcsonzes(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.baseUrl}kolcsonzesek/${id}`);
+  }
+
+  getKolcsonzok(): Observable<KolcsonzokComponent[]> {
+    return this.http.get<KolcsonzokComponent[]>(`${this.baseUrl}kolcsonzok`);
+  }
+
+  getKolcsonzo(id: number): Observable<KolcsonzokComponent> {
+    return this.http.get<KolcsonzokComponent>(`${this.baseUrl}kolcsonzok/${id}`);
+  }
+}
+
+
+
+
+16.   base.service.spec.ts azon nem kell változtatni
